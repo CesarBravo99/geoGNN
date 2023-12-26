@@ -59,7 +59,9 @@ class DDDataset(object):
         sparse_adjacency = sp.coo_matrix((np.ones(len(adjacency_list)), 
                                           (adjacency_list[:, 0], adjacency_list[:, 1])),
                                          shape=(num_nodes, num_nodes), dtype=np.float32)
-        print("Number of nodes: ", num_nodes)
+        print("Number of graphs: ", len(graph_labels))
+        print("Number of nodes: ", len(node_labels))
+        print("Number of links: ", len(adjacency_list))
         # node_infos = pd.DataFrame(columns=["node_labels", "graph_indicator"])
         # node_infos["node_labels"] = node_labels
         # node_infos["graph_indicator"] = graph_indicator

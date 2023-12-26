@@ -6,5 +6,6 @@ Thesis project repository
 ***
 
 26-dic:
+
 25-dic: Added cora.ipynb, this .ipynb describes the cora dataset
 

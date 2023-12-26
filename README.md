@@ -6,7 +6,7 @@ Thesis project repository
 ***
 
 - 26-dic: 
-
+    - Added MD17.ipynb, this .ipynb describes the MD17 benzene dataset
     - Added DD.ipnb, this .ipynb describes the DD dataset
     - Connect Github repo with Paperspace workspace
 

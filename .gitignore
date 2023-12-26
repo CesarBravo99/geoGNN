@@ -2,8 +2,11 @@
 __pycache__/
 **/__pycache__/
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
 *.pyc
 *.pyo
+*.zip
+*.pkl
 *.env
 *.py[cod]
 *$py.class

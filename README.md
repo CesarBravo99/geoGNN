@@ -6,6 +6,8 @@ Thesis project repository
 ***
 
 - 26-dic: 
+    - Added QM9.ipynb
+    - Refactor of datasets scripts by integrate `PyTorch Geometric`lib. for dataset managing.
     - Added MD17.ipynb, this .ipynb describes the MD17 benzene dataset
     - Added DD.ipnb, this .ipynb describes the DD dataset
     - Connect Github repo with Paperspace workspace

@@ -1,7 +1,9 @@
 # Byte-compiled / optimized / DLL files
-*/__pycache__/
+__pycache__/
+**/__pycache__/
 .ipynb_checkpoints/
-*.cpython-39.pyc
+*.pyc
+*.pyo
 *.env
 *.py[cod]
 *$py.class

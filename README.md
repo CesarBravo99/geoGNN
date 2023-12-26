@@ -8,7 +8,7 @@ Thesis project repository
 - 26-dic: 
 
     - Added DD.ipnb, this .ipynb describes the DD dataset
-    - Connect Github repo with paperspace workspace
+    - Connect Github repo with Paperspace workspace
 
 - 25-dic:
 

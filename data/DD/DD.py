@@ -1,4 +1,6 @@
 import os
+import urllib
+from zipfile import ZipFile
 import numpy as np
 import scipy.sparse as sp
 from sklearn.model_selection import train_test_split
@@ -7,10 +9,11 @@ from sklearn.model_selection import train_test_split
 class DDDataset(object):
     url = "https://ls11-www.cs.tu-dortmund.de/people/morris/graphkerneldatasets/DD.zip"
     
-    def __init__(self, data_root="/notebooks/GNN/data", train_size=0.8):
+    def __init__(self, data_root="/notebooks/data", train_size=0.8, download=False):
         self.data_root = data_root
         print(data_root)
-        # self.maybe_download()
+        if download:
+            self.maybe_download()
         sparse_adjacency, node_labels, graph_indicator, graph_labels = self.read_data()
         self.sparse_adjacency = sparse_adjacency.tocsr()
         self.node_labels = node_labels
@@ -63,23 +66,21 @@ class DDDataset(object):
         return sparse_adjacency, node_labels, graph_indicator, graph_labels
     
     def maybe_download(self):
-        save_path = os.path.join(self.data_root)
-        if not os.path.exists(save_path):
-            self.download_data(self.url, save_path)
-        if not os.path.exists(os.path.join(self.data_root, "DD")):
-            zipfilename = os.path.join(self.data_root, "DD.zip")
-            with ZipFile(zipfilename, "r") as zipobj:
-                zipobj.extractall(os.path.join(self.data_root))
-                print("Extracting data from {}".format(zipfilename))
+        save_path = os.path.join(self.data_root, "DD")
+        # if not os.path.exists(save_path):
+        self.download_data(self.url, save_path)
+        # if not os.path.exists(os.path.join(self.data_root, "DD")):
+        zipfilename = os.path.join(save_path, "DD.zip")
+        with ZipFile(zipfilename, "r") as zipobj:
+            zipobj.extractall(os.path.join(self.data_root))
+            print("Extracting data from {}".format(zipfilename))
     
     @staticmethod
     def download_data(url, save_path):
-        """数据下载工具，当原始数据不存在时将会进行下载"""
         print("Downloading data from {}".format(url))
         if not os.path.exists(save_path):
             os.makedirs(save_path)
         data = urllib.request.urlopen(url)
-        filename = "DD.zip"
-        with open(os.path.join(save_path, filename), 'wb') as f:
+        with open(os.path.join(save_path, "DD.zip"), 'wb') as f:
             f.write(data.read())
         return True

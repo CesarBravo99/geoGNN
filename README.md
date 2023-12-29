@@ -4,7 +4,9 @@ Thesis project repository
 
 ## Work Log
 ***
-
+- 28-dic:
+    - Review Mojo programming languange documentation for possible High efficient GNN implementation.
+      
 - 26-dic: 
     - Added QM9.ipynb
     - Refactor of datasets scripts by integrate `PyTorch Geometric` lib. for dataset managing.
@@ -13,7 +15,6 @@ Thesis project repository
     - Connect Github repo with Paperspace workspace
 
 - 25-dic:
-
     - Added cora.ipynb, this .ipynb describes the cora dataset
 
 ***

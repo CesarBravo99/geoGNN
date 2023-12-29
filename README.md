@@ -5,7 +5,7 @@ Thesis project repository
 ## Work Log
 ***
 - 28-dic:
-    - Review Mojo programming languange documentation for possible High efficient GNN implementation.
+    - Review `Mojo` programming languange documentation for possible High efficient GNN implementation.
       
 - 26-dic: 
     - Added QM9.ipynb

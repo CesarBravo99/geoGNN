@@ -2,6 +2,11 @@
 
 Thesis project repository
 
+## Pending Meeting Tasks
+***
+- Revisar embedding de grafos
+***
+
 ## Work Log
 ***
 - 28-dic:

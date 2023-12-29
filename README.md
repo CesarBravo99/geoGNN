@@ -3,9 +3,8 @@
 Thesis project repository
 
 ## Pending Meeting Tasks
-***
+
 - Revisar embedding de grafos
-***
 
 ## Work Log
 ***

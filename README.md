@@ -7,6 +7,7 @@ Thesis project repository
 - Revisar embedding de grafos
 
 ## Work Log
+***
 
 - 28-dic:
     - Review `Mojo🔥` programming languange documentation for possible High efficient GNN implementation.
@@ -20,7 +21,7 @@ Thesis project repository
 
 - 25-dic:
     - Added cora.ipynb, this .ipynb describes the cora dataset
-
+***
 
 
 ## Bibliography

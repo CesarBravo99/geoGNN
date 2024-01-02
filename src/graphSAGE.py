@@ -44,7 +44,7 @@ class GraphSage(nn.Module):
         self.gcn.append(MessagePassing(input_dim, hidden_dim[0], hidden_dim[0]))
         for index in range(0, len(hidden_dim) - 2):
             self.gcn.append(MessagePassing(hidden_dim[index], hidden_dim[index+1], hidden_dim[index+1]))
-        self.gcn.append(MessagePassing(hidden_dim[-2], hidden_dim[-1], hidden_dim[-1], activation=None))
+        self.gcn.append(MessagePassing(hidden_dim[-2], hidden_dim[-1], hidden_dim[-1], activation=lambda h: h))
 
     def forward(self, node_features_list):
         hidden = node_features_list

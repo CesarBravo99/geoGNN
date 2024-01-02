@@ -6,13 +6,15 @@ Thesis project repository
 
 - Revisar algoritmos de pooling de grafos
 - Añadir preprocesamiento de los datasets para entrenar GNNS
-- Estarandarizar los inputs de las diferentes arquitecturas de GNN
-- Implementar k-disGNN y geoGNN
+- Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de PROTEINS dataset
+- Implementar k-disGNN [2] y geoGNN [1]
 
 ## Work Log
 ***
 - 2-jan:
-    - Read [5] for graph pooling
+    - Read [5, 6, 7, 8] for graph pooling and readout
+    - Adapt graphSAGE for PROTEINS dataset
+    - Refactor of GAT
 
 - 1-jan:
     - Review and refactor of graphSAGE [4]. Add MessagePassing class
@@ -43,3 +45,9 @@ Thesis project repository
 4. Hamilton, W. L., Ying, R., & Leskovec, J. (2017). Inductive Representation Learning on Large Graphs. [arXiv](https://doi.org/10.48550/ARXIV.1706.02216)
 
 5. Liu, C., Zhan, Y., Wu, J., Li, C., Du, B., Hu, W., Liu, T., & Tao, D. (2022). Graph Pooling for Graph Neural Networks: Progress, Challenges, and Opportunities. [arXiv](https://doi.org/10.48550/ARXIV.2204.07321)
+
+6. Grattarola, D., Zambon, D., Bianchi, F. M., & Alippi, C. (2021). Understanding Pooling in Graph Neural Networks. [arXiv](https://doi.org/10.48550/ARXIV.2110.05292)
+
+7. Ying, R., You, J., Morris, C., Ren, X., Hamilton, W. L., & Leskovec, J. (2018). Hierarchical Graph Representation Learning with Differentiable Pooling [arXiv](https://doi.org/10.48550/ARXIV.1806.08804)
+
+8.  Buterez, D., Janet, J. P., Kiddle, S. J., Oglic, D., & Liò, P. (2022). Graph Neural Networks with Adaptive Readouts. [arXiv](https://doi.org/10.48550/ARXIV.2211.04952)

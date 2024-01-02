@@ -40,28 +40,23 @@ class GraphSage(nn.Module):
         self.hidden_dim = hidden_dim
         self.num_neighbors_list = num_neighbors_list
         self.num_layers = len(num_neighbors_list)
+
         self.gcn = nn.ModuleList()
         self.gcn.append(MessagePassing(input_dim, hidden_dim[0], hidden_dim[0]))
-        for index in range(0, len(hidden_dim) - 2):
+        for index in range(0, len(hidden_dim)-2):
             self.gcn.append(MessagePassing(hidden_dim[index], hidden_dim[index+1], hidden_dim[index+1]))
         self.gcn.append(MessagePassing(hidden_dim[-2], hidden_dim[-1], hidden_dim[-1], activation=lambda h: h))
 
     def forward(self, node_features_list):
         hidden = node_features_list
-        for l in range(self.num_layers):
+        for layer in range(self.num_layers):
             next_hidden = []
-            gcn = self.gcn[l]
-            for hop in range(self.num_layers - l):
-                src_node_features = hidden[hop]
-                src_node_num = len(src_node_features)
-                neighbor_node_features = hidden[hop + 1] \
-                    .view((src_node_num, self.num_neighbors_list[hop], -1))
-                h = gcn(src_node_features, neighbor_node_features)
-                next_hidden.append(h)
+            for hop in range(self.num_layers - layer):
+                node_features = hidden[hop]
+                neighbor_node_features = hidden[hop + 1].view((len(node_features), self.num_neighbors_list[hop], -1))
+                next_hidden.append(self.gcn[layer](node_features, neighbor_node_features))
             hidden = next_hidden
         return hidden[0]
 
     def extra_repr(self):
-        return 'in_features={}, num_neighbors_list={}'.format(
-            self.input_dim, self.num_neighbors_list
-        )
+        return f'in_features={self.input_dim}, num_neighbors_list={self.num_neighbors_list}'

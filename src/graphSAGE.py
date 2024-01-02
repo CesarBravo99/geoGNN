@@ -4,88 +4,33 @@ import torch.nn.functional as F
 import torch.nn.init as init
 
 
-class NeighborAggregator(nn.Module):
-    def __init__(self, input_dim, output_dim, use_bias=False, aggr_method="mean"):
-        super(NeighborAggregator, self).__init__()
-        self.input_dim = input_dim
-        self.output_dim = output_dim
-        self.use_bias = use_bias
-        self.aggr_method = aggr_method
-        self.weight = nn.Parameter(torch.Tensor(input_dim, output_dim))
-        if self.use_bias: self.bias = nn.Parameter(torch.Tensor(self.output_dim))
-        self.reset_parameters()
-    
-    def reset_parameters(self):
-        init.kaiming_uniform_(self.weight)
-        if self.use_bias: init.zeros_(self.bias)
-
-    def forward(self, neighbor_feature):
-        if self.aggr_method == "mean": aggr_neighbor = neighbor_feature.mean(dim=1)
-        elif self.aggr_method == "sum": aggr_neighbor = neighbor_feature.sum(dim=1)
-        elif self.aggr_method == "max": aggr_neighbor = neighbor_feature.max(dim=1)
-        else: raise ValueError("Unknown aggr type, expected sum, max, or mean, but got {}"
-                             .format(self.aggr_method))
-        neighbor_hidden = torch.matmul(aggr_neighbor, self.weight)
-        if self.use_bias: neighbor_hidden += self.bias
-        return neighbor_hidden
-
-    def extra_repr(self):
-        return 'in_features={}, out_features={}, aggr_method={}'.format(
-            self.input_dim, self.output_dim, self.aggr_method)
-    
-
-class SageGCN(nn.Module):
-    def __init__(self, input_dim, hidden_dim,
-                 activation=F.relu,
-                 aggr_neighbor_method="mean",
-                 aggr_hidden_method="sum"):
-        """SageGCN
-
-        Args:
-            input_dim: 
-            hidden_dim: 
-                aggr_hidden_method=sum, 
-                aggr_hidden_method=concat, hidden_dim*2
-            activation: ReLU
-            aggr_neighbor_method: ，["mean", "sum", "max"]
-            aggr_hidden_method: ，["sum", "concat"]
-        """
-        super(SageGCN, self).__init__()
-        assert aggr_neighbor_method in ["mean", "sum", "max"]
-        assert aggr_hidden_method in ["sum", "concat"]
-        self.input_dim = input_dim
-        self.hidden_dim = hidden_dim
-        self.aggr_neighbor_method = aggr_neighbor_method
-        self.aggr_hidden_method = aggr_hidden_method
+class MessagePassing(nn.Module):
+    def  __init__(self, feature_dim, agg_dim, upd_dim, activation=F.relu):
+        super(MessagePassing, self).__init__()
+        # self.aggr_method = lambda x: torch.mean(x, 1)
+        # self.upd_method = lambda h, m: h + m
         self.activation = activation
-        self.aggregator = NeighborAggregator(input_dim, hidden_dim,
-                                             aggr_method=aggr_neighbor_method)
-        self.weight = nn.Parameter(torch.Tensor(input_dim, hidden_dim))
+        self.agg_weight = nn.Parameter(torch.Tensor(feature_dim, agg_dim))
+        self.upd_weight = nn.Parameter(torch.Tensor(feature_dim, upd_dim))
         self.reset_parameters()
-    
+
     def reset_parameters(self):
-        init.kaiming_uniform_(self.weight)
-
-    def forward(self, src_node_features, neighbor_node_features):
-        neighbor_hidden = self.aggregator(neighbor_node_features)
-        self_hidden = torch.matmul(src_node_features, self.weight)
+        init.kaiming_uniform_(self.agg_weight)
+        init.kaiming_uniform_(self.upd_weight)
         
-        if self.aggr_hidden_method == "sum":
-            hidden = self_hidden + neighbor_hidden
-        elif self.aggr_hidden_method == "concat":
-            hidden = torch.cat([self_hidden, neighbor_hidden], dim=1)
-        else:
-            raise ValueError("Expected sum or concat, got {}"
-                             .format(self.aggr_hidden))
-        if self.activation:
-            return self.activation(hidden)
-        else:
-            return hidden
+    def forward(self, node_feature, neighborhood_features):
+        # Aggregate
+        # aggr_neighbor = self.aggr_method(neighborhood_features)
+        aggr_neighbor = neighborhood_features.mean(dim=1)
+        message = torch.matmul(aggr_neighbor, self.agg_weight)
 
-    def extra_repr(self):
-        output_dim = self.hidden_dim if self.aggr_hidden_method == "sum" else self.hidden_dim * 2
-        return 'in_features={}, out_features={}, aggr_hidden_method={}'.format(
-            self.input_dim, output_dim, self.aggr_hidden_method)
+        # Update
+        node_feature_W = torch.matmul(node_feature, self.upd_weight)
+        # embedding = self.upd_method(node_feature_W, message)
+        embedding = node_feature_W + message
+        if self.activation: return self.activation(embedding)
+        else: return embedding
+        # return F.relu(embedding)
 
 
 class GraphSage(nn.Module):
@@ -97,10 +42,10 @@ class GraphSage(nn.Module):
         self.num_neighbors_list = num_neighbors_list
         self.num_layers = len(num_neighbors_list)
         self.gcn = nn.ModuleList()
-        self.gcn.append(SageGCN(input_dim, hidden_dim[0]))
+        self.gcn.append(MessagePassing(input_dim, hidden_dim[0], hidden_dim[0]))
         for index in range(0, len(hidden_dim) - 2):
-            self.gcn.append(SageGCN(hidden_dim[index], hidden_dim[index+1]))
-        self.gcn.append(SageGCN(hidden_dim[-2], hidden_dim[-1], activation=None))
+            self.gcn.append(MessagePassing(hidden_dim[index], hidden_dim[index+1], hidden_dim[index+1]))
+        self.gcn.append(MessagePassing(hidden_dim[-2], hidden_dim[-1], hidden_dim[-1], activation=None))
 
     def forward(self, node_features_list):
         hidden = node_features_list

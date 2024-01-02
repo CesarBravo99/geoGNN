@@ -12,7 +12,7 @@ Data = namedtuple('Data', ['x', 'y', 'adjacency_dict',
 
 class CoraData(object):
     
-    def __init__(self, data_root="/notebooks/data/cora", rebuild=False):
+    def __init__(self, data_root="/notebooks/data/Planetoid/Cora/raw", rebuild=False):
         """Cora
 
         .data:
@@ -49,9 +49,6 @@ class CoraData(object):
         return self._data
 
     def process_data(self):
-        """
-        https://github.com/rusty1s/pytorch_geometric
-        """
         print("Process data ...")
         self.filenames = ["ind.cora.{}".format(name) for name in
                  ['x', 'tx', 'allx', 'y', 'ty', 'ally', 'graph', 'test.index']]
@@ -76,7 +73,6 @@ class CoraData(object):
         val_mask[val_index] = True
         test_mask[test_index] = True
         
-        
         print("Node's feature shape: ", x.shape)
         print("Node's label shape: ", y.shape)
         print("Adjacency's shape: ", len(adjacency_dict))
@@ -84,8 +80,6 @@ class CoraData(object):
         print("Number of validation nodes: ", val_mask.sum())
         print("Number of test nodes: ", test_mask.sum())
 
-        
-        
         return Data(x=x, y=y, adjacency_dict=adjacency_dict,
                     train_mask=train_mask, val_mask=val_mask, test_mask=test_mask)
 

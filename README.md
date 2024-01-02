@@ -12,7 +12,7 @@ Thesis project repository
 ## Work Log
 ***
 - 2-jan:
-    - Read [5] for graph pooling
+    - Read [5] for graph pooling and readout
     - Adapt graphSAGE for PROTEINS dataset
     - Refactor of GAT
 

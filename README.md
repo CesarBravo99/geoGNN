@@ -7,7 +7,7 @@ Thesis project repository
 - Revisar algoritmos de pooling de grafos
 - Añadir preprocesamiento de los datasets para entrenar GNNS
 - Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de PROTEINS dataset
-- Implementar k-disGNN y geoGNN
+- Implementar k-disGNN [2] y geoGNN [1]
 
 ## Work Log
 ***

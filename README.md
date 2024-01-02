@@ -12,7 +12,7 @@ Thesis project repository
 ## Work Log
 ***
 - 2-jan:
-    - Read [5, 6] for graph pooling and readout
+    - Read [5, 6, 7] for graph pooling and readout
     - Adapt graphSAGE for PROTEINS dataset
     - Refactor of GAT
 
@@ -47,3 +47,5 @@ Thesis project repository
 5. Liu, C., Zhan, Y., Wu, J., Li, C., Du, B., Hu, W., Liu, T., & Tao, D. (2022). Graph Pooling for Graph Neural Networks: Progress, Challenges, and Opportunities. [arXiv](https://doi.org/10.48550/ARXIV.2204.07321)
 
 6. Buterez, D., Janet, J. P., Kiddle, S. J., Oglic, D., & Liò, P. (2022). Graph Neural Networks with Adaptive Readouts. [arXiv](https://doi.org/10.48550/ARXIV.2211.04952)
+
+7. Ying, R., You, J., Morris, C., Ren, X., Hamilton, W. L., & Leskovec, J. (2018). Hierarchical Graph Representation Learning with Differentiable Pooling [arXiv](https://doi.org/10.48550/ARXIV.1806.08804)

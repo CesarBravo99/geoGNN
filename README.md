@@ -6,31 +6,31 @@ Thesis project repository
 
 - Revisar algoritmos de pooling de grafos
 - Añadir preprocesamiento de los datasets para entrenar GNNS
-- Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de PROTEINS dataset
-- Implementar k-disGNN [2] y geoGNN [1]
+- Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de `PROTEINS` dataset
+- Implementar `k-disGNN` [2] y `geoGNN` [1]
 
 ## Work Log
 ***
 - 2-jan:
     - Read [5, 6, 7, 8] for graph pooling and readout
-    - Adapt graphSAGE for PROTEINS dataset
-    - Refactor of GAT
+    - Adapt `graphSAGE` for `PROTEINS` dataset
+    - Refactor of `GAT`
 
 - 1-jan:
-    - Review and refactor of graphSAGE [4]. Add MessagePassing class
+    - Review and refactor of `graphSAGE` [4]. Add MessagePassing class
 
 - 28-dic:
     - Review `Mojo🔥` programming languange documentation for possible High efficient GNN implementation.
       
 - 26-dic: 
-    - Added QM9.ipynb
+    - Added `QM9.ipynb`
     - Refactor of datasets scripts by integrate `PyTorch Geometric` lib. for dataset managing.
-    - Added MD17.ipynb, this .ipynb describes the MD17 benzene dataset
-    - Added DD.ipnb, this .ipynb describes the DD dataset
-    - Connect Github repo with Paperspace workspace
+    - Added `MD17.ipynb`, this .ipynb describes the MD17 benzene dataset
+    - Added `DD.ipnb`, this .ipynb describes the DD dataset
+    - Connect _Github_ repo with _Paperspace_ workspace
 
 - 25-dic:
-    - Added cora.ipynb, this .ipynb describes the cora dataset
+    - Added `Cora.ipynb`, this .ipynb describes the cora dataset
 ***
 
 

@@ -12,7 +12,7 @@ Thesis project repository
 ## Work Log
 ***
 - 2-jan:
-    - Read [5] for graph pooling and readout
+    - Read [5, 6] for graph pooling and readout
     - Adapt graphSAGE for PROTEINS dataset
     - Refactor of GAT
 
@@ -45,3 +45,5 @@ Thesis project repository
 4. Hamilton, W. L., Ying, R., & Leskovec, J. (2017). Inductive Representation Learning on Large Graphs. [arXiv](https://doi.org/10.48550/ARXIV.1706.02216)
 
 5. Liu, C., Zhan, Y., Wu, J., Li, C., Du, B., Hu, W., Liu, T., & Tao, D. (2022). Graph Pooling for Graph Neural Networks: Progress, Challenges, and Opportunities. [arXiv](https://doi.org/10.48550/ARXIV.2204.07321)
+
+6. Buterez, D., Janet, J. P., Kiddle, S. J., Oglic, D., & Liò, P. (2022). Graph Neural Networks with Adaptive Readouts. [arXiv](https://doi.org/10.48550/ARXIV.2211.04952)

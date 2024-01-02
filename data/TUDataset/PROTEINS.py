@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 class DDDataset(object):
     url = "https://ls11-www.cs.tu-dortmund.de/people/morris/graphkerneldatasets/DD.zip"
     
-    def __init__(self, data_root="/notebooks/data", train_size=0.8, download=False):
+    def __init__(self, data_root="/notebooks/data/TUDataset/PROTEINS/raw", train_size=0.8, download=False):
         self.data_root = data_root
         print(data_root)
         if download:

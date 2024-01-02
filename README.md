@@ -2,12 +2,16 @@
 
 Thesis project repository
 
-## Pending Meeting Tasks
+## Pending Meeting Tasks (TO DO)
 
 - Revisar embedding de grafos
+- Añadir preprocesamiento de los datasets para entrenar GNNS
+- Implementar k-disGNN y geoGNN
 
 ## Work Log
 ***
+- 1-jan:
+    - Review and refactor of graphSage. Add MessagePassing class
 
 - 28-dic:
     - Review `Mojo🔥` programming languange documentation for possible High efficient GNN implementation.

@@ -7,13 +7,10 @@ from sklearn.model_selection import train_test_split
 
 
 class DDDataset(object):
-    url = "https://ls11-www.cs.tu-dortmund.de/people/morris/graphkerneldatasets/DD.zip"
     
-    def __init__(self, data_root="/notebooks/data/TUDataset/PROTEINS/raw", train_size=0.8, download=False):
+    def __init__(self, data_root="/notebooks/data/TUDataset/PROTEINS/raw", train_size=0.8):
         self.data_root = data_root
         print(data_root)
-        if download:
-            self.maybe_download()
         sparse_adjacency, node_labels, graph_indicator, graph_labels = self.read_data()
         self.sparse_adjacency = sparse_adjacency.tocsr()
         self.node_labels = node_labels
@@ -67,22 +64,3 @@ class DDDataset(object):
         # node_infos["graph_indicator"] = graph_indicator
         return sparse_adjacency, node_labels, graph_indicator, graph_labels
     
-    def maybe_download(self):
-        save_path = os.path.join(self.data_root, "DD")
-        # if not os.path.exists(save_path):
-        self.download_data(self.url, save_path)
-        # if not os.path.exists(os.path.join(self.data_root, "DD")):
-        zipfilename = os.path.join(save_path, "DD.zip")
-        with ZipFile(zipfilename, "r") as zipobj:
-            zipobj.extractall(os.path.join(self.data_root))
-            print("Extracting data from {}".format(zipfilename))
-    
-    @staticmethod
-    def download_data(url, save_path):
-        print("Downloading data from {}".format(url))
-        if not os.path.exists(save_path):
-            os.makedirs(save_path)
-        data = urllib.request.urlopen(url)
-        with open(os.path.join(save_path, "DD.zip"), 'wb') as f:
-            f.write(data.read())
-        return True

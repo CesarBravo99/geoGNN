@@ -12,6 +12,7 @@ class MessagePassing(nn.Module):
         self.activation = activation
         self.agg_weight = nn.Parameter(torch.Tensor(feature_dim, agg_dim))
         self.upd_weight = nn.Parameter(torch.Tensor(feature_dim, upd_dim))
+        self.reset_parameters()
 
     def reset_parameters(self):
         init.kaiming_uniform_(self.agg_weight)

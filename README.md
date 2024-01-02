@@ -6,13 +6,15 @@ Thesis project repository
 
 - Revisar algoritmos de pooling de grafos
 - Añadir preprocesamiento de los datasets para entrenar GNNS
-- Estarandarizar los inputs de las diferentes arquitecturas de GNN
+- Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de PROTEINS dataset
 - Implementar k-disGNN y geoGNN
 
 ## Work Log
 ***
 - 2-jan:
     - Read [5] for graph pooling
+    - Adapt graphSAGE for PROTEINS dataset
+    - Refactor of GAT
 
 - 1-jan:
     - Review and refactor of graphSAGE [4]. Add MessagePassing class

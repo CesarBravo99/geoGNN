@@ -5,11 +5,11 @@ import torch.nn.init as init
 
 
 class MessagePassing(nn.Module):
-    def  __init__(self, feature_dim, agg_dim, upd_dim):
+    def  __init__(self, feature_dim, agg_dim, upd_dim, activation=F.relu):
         super(MessagePassing, self).__init__()
-        self.aggr_method = lambda x: torch.mean(x, 1)
-        self.upd_method = lambda h, m: h + m
-        self.activation = lambda h: F.relu(h)
+        # self.aggr_method = lambda x: torch.mean(x, 1)
+        # self.upd_method = lambda h, m: h + m
+        self.activation = activation
         self.agg_weight = nn.Parameter(torch.Tensor(feature_dim, agg_dim))
         self.upd_weight = nn.Parameter(torch.Tensor(feature_dim, upd_dim))
 
@@ -19,13 +19,17 @@ class MessagePassing(nn.Module):
         
     def forward(self, node_feature, neighborhood_features):
         # Aggregate
-        aggr_neighbor = self.aggr_method(neighborhood_features)
+        # aggr_neighbor = self.aggr_method(neighborhood_features)
+        aggr_neighbor = neighborhood_features.mean(dim=1)
         message = torch.matmul(aggr_neighbor, self.agg_weight)
 
         # Update
         node_feature_W = torch.matmul(node_feature, self.upd_weight)
-        embedding = self.upd_method(node_feature_W, message)
-        return self.activation(embedding)
+        # embedding = self.upd_method(node_feature_W, message)
+        embedding = node_feature_W + message
+        if self.activation: return self.activation(embedding)
+        else: return embedding
+        # return F.relu(embedding)
 
 
 class GraphSage(nn.Module):

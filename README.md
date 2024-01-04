@@ -11,11 +11,14 @@ Thesis project repository
 
 ## Work Log
 ***
+
+- 3-jan:
+    - Read [9, 10, 11, 12, 13] for graph pooling and readout
+    
 - 2-jan:
     - Read [5, 6, 7, 8] for graph pooling and readout
     - Adapt `graphSAGE` for `PROTEINS` dataset
-    - Refactor of `GAT`
-
+    - Refactor of `GAT`. Work in progress
 - 1-jan:
     - Review and refactor of `graphSAGE` [4]. Add MessagePassing class
 
@@ -51,3 +54,13 @@ Thesis project repository
 7. Ying, R., You, J., Morris, C., Ren, X., Hamilton, W. L., & Leskovec, J. (2018). Hierarchical Graph Representation Learning with Differentiable Pooling [arXiv](https://doi.org/10.48550/ARXIV.1806.08804)
 
 8.  Buterez, D., Janet, J. P., Kiddle, S. J., Oglic, D., & Liò, P. (2022). Graph Neural Networks with Adaptive Readouts. [arXiv](https://doi.org/10.48550/ARXIV.2211.04952)
+
+9.  Ju, W., Fang, Z., Gu, Y., Liu, Z., Long, Q., Qiao, Z., Qin, Y., Shen, J., Sun, F., Xiao, Z., Yang, J., Yuan, J., Zhao, Y., Luo, X., & Zhang, M. (2023). A Comprehensive Survey on Deep Graph Representation Learning (Version 2). [arXiv](https://doi.org/10.48550/ARXIV.2304.05055)
+
+10. Hamilton, William L. (2023). Graph Representation Learning. Synthesis Lectures on Artificial Intelligence and Machine Learning. [link](https://www.cs.mcgill.ca/~wlh/grl_book/)
+
+11. Mesquita, D., Souza, A. H., & Kaski, S. (2020). Rethinking pooling in graph neural networks (Version 1). [arXiv](https://doi.org/10.48550/ARXIV.2010.11418)
+
+12. Pal, S., Malekmohammadi, S., Regol, F., Zhang, Y., Xu, Y., & Coates, M. (2020). Non-Parametric Graph Learning for Bayesian Graph Neural Networks. [arXiv](https://doi.org/10.48550/ARXIV.2006.13335)
+
+13. Zhang, Z., Bu, J., Ester, M., Zhang, J., Yao, C., Yu, Z., & Wang, C. (2019). Hierarchical Graph Pooling with Structure Learning. [arXiv](https://doi.org/10.48550/ARXIV.1911.05954)

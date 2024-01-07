@@ -13,7 +13,7 @@ Thesis project repository
 ## Work Log
 ***
 - 7-jan:
-   -  Read `PyTorch Geometric` documentation and run notebooks examples on Paperspace using graphcore IPU 
+   -  Read `PyTorch Geometric` documentation on datasets, layars, models and run notebooks examples on Paperspace using graphcore IPU 
    -  🔥 Deprecate data folder
 
 - 3-jan:

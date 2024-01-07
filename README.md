@@ -4,13 +4,17 @@ Thesis project repository
 
 ## Pending Meeting Tasks (TO DO)
 
-- Revisar algoritmos de pooling de grafos
-- Añadir preprocesamiento de los datasets para entrenar GNNS
-- Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de `PROTEINS` dataset
+- Realizar experimento para medir sensibilidad de poolings sobre grafos construidos a mano
+- ~~Revisar algoritmos de pooling de grafos~~
+- ~~Añadir preprocesamiento de los datasets para entrenar GNNS~~
+- ~~Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de `PROTEINS` dataset~~
 - Implementar `k-disGNN` [2] y `geoGNN` [1]
 
 ## Work Log
 ***
+- 7-jan:
+   -  Read `PyTorch Geometric` documentation and run notebooks examples on Paperspace using graphcore IPU 
+   -  🔥 Deprecate data folder
 
 - 3-jan:
     - Read [9, 10, 11, 12, 13] for graph pooling and readout

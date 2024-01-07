@@ -13,31 +13,31 @@ Thesis project repository
 ## Work Log
 ***
 - 7-jan:
-   -  Read `PyTorch Geometric` documentation on datasets, layars, models and run notebooks examples on Paperspace using graphcore IPU 
+   -  📚 Read `PyTorch Geometric` documentation on datasets, layars, models and run notebooks examples on Paperspace using graphcore IPU 
    -  🔥 Deprecate data folder
 
 - 3-jan:
-    - Read [9, 10, 11, 12, 13] for graph pooling and readout
+    - 📚 Read [9, 10, 11, 12, 13] for graph pooling and readout
     
 - 2-jan:
-    - Read [5, 6, 7, 8] for graph pooling and readout
-    - Adapt `graphSAGE` for `PROTEINS` dataset
-    - Refactor of `GAT`. Work in progress
+    - 📚 Read [5, 6, 7, 8] for graph pooling and readout
+    - ✨ Adapt `graphSAGE` for `PROTEINS` dataset
+    - ♻️ Refactor of `GAT`. Work in progress
 - 1-jan:
-    - Review and refactor of `graphSAGE` [4]. Add MessagePassing class
+    - ♻️ Review and refactor of `graphSAGE` [4]. Add MessagePassing class
 
 - 28-dic:
     - Review `Mojo🔥` programming languange documentation for possible High efficient GNN implementation.
       
 - 26-dic: 
-    - Added `QM9.ipynb`
-    - Refactor of datasets scripts by integrate `PyTorch Geometric` lib. for dataset managing.
-    - Added `MD17.ipynb`, this .ipynb describes the MD17 benzene dataset
-    - Added `DD.ipnb`, this .ipynb describes the DD dataset
-    - Connect _Github_ repo with _Paperspace_ workspace
+    - ✨ Added `QM9.ipynb`
+    - ♻️ Refactor of datasets scripts by integrate `PyTorch Geometric` lib. for dataset managing.
+    - ✨ Added `MD17.ipynb`, this .ipynb describes the MD17 benzene dataset
+    - ✨ Added `DD.ipnb`, this .ipynb describes the DD dataset
+    - ✨ Connect _Github_ repo with _Paperspace_ workspace
 
 - 25-dic:
-    - Added `Cora.ipynb`, this .ipynb describes the cora dataset
+    - ✨ Added `Cora.ipynb`, this .ipynb describes the cora dataset
 ***
 
 

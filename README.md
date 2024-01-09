@@ -12,6 +12,16 @@ Thesis project repository
 
 ## Work Log
 ***
+-9-jan:
+   - 📚 Code review of [2]
+   - ✨ Added graph_prediciont_regresion.ipynb
+   - 📚 Read `PyTorch Geometric` documentation for transform and filter PyG datasets
+
+- 8-jan:
+   - ✨ Added node_classification.ipynb, graph_prediciont_binary.ipynb and basicGNN.py
+   - 🔥 Remove old code
+   - ⚡ Permanently install Python libraries on Paperspace
+  
 - 7-jan:
    -  📚 Read `PyTorch Geometric` documentation on datasets, layars, models and run notebooks examples on Paperspace using graphcore IPU 
    -  🔥 Deprecate data folder

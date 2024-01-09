@@ -12,7 +12,7 @@ Thesis project repository
 
 ## Work Log
 ***
--9-jan:
+- 9-jan:
    - 📚 Code review of [2]
    - ✨ Added graph_prediciont_regresion.ipynb
    - 📚 Read `PyTorch Geometric` documentation for transform and filter PyG datasets

@@ -4,14 +4,22 @@ Thesis project repository
 
 ## Pending Meeting Tasks (TO DO)
 
+- Añadir reset de parámetros
+- Hacer experimento de entrenamiento con y sin batches normalizando por el nro de FLOPS
+- Revisar qué hace la función de plotting
+- Investigar sobre edge prediction
+- Investigar sobre qué hace la función de pérdida de pytorch
 - Realizar experimento para medir sensibilidad de poolings sobre grafos construidos a mano
-- ~~Revisar algoritmos de pooling de grafos~~
-- ~~Añadir preprocesamiento de los datasets para entrenar GNNS~~
-- ~~Estarandarizar los inputs de las diferentes arquitecturas de GNN para el caso de `PROTEINS` dataset~~
 - Implementar `k-disGNN` [2] y `geoGNN` [1]
 
 ## Work Log
 ***
+- 12-jan
+  - 👥 Meeting
+    
+- 11-jan
+   - 📚 Read [] for better undestanding of edge prediction
+
 - 9-jan:
    - 👥 Meeting
    - 📚 Code review of [2]

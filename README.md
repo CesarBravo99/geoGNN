@@ -1,7 +1,7 @@
 # Geometric Graph Neural Networks
 
 Thesis project repository
-
+https://arxiv.org/pdf/2211.03232.pdf
 ## Pending Meeting Tasks (TO DO)
 
 - Añadir reset de parámetros
